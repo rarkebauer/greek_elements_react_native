@@ -10,11 +10,11 @@ export default class SinglePhoto extends Component {
   }
 
   render(){
-    const { navigate } = this.props.navigation
+   // const { navigate } = this.props.navigation
     return (
         <View style={styles.container}>
           <Text>Rendering single view</Text>
-          <FooterNav navigate={navigate} />
+          {/* <FooterNav navigate={navigate} /> */}
         </View>
     )
   }
