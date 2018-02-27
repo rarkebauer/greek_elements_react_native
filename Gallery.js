@@ -12,9 +12,6 @@ import water from './elements/water';
 import earth from './elements/earth';
 import air from './elements/air';
 
-//import Icon from 'react-native-vector-icons/FontAwesome';
-//import Button from '../components/Button';
-
 export default class Gallery extends Component {
   constructor(props){
     super(props)
