@@ -13,33 +13,34 @@ export default class HomePage extends Component {
      const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
+        <Text style={[styles.title, styles.button]}>Greek Element Gallery</Text>
         <TouchableOpacity
           style={[styles.button, {backgroundColor: '#ef4a4d'}]}
           onPress={() =>
             navigate('Element', { name: 'fire' })}
         >
-          <Text> Fire </Text>
+          <Text style={styles.buttonText}> Fire </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.button, {backgroundColor: '#ffe102'}]}
           onPress={() =>
             navigate('Element', { name: 'earth' })}
         >
-          <Text> Earth </Text>
+          <Text style={styles.buttonText}> Earth </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.button, {backgroundColor: '#337be8'}]}
           onPress={() =>
             navigate('Element', { name: 'water' })}
         >
-          <Text> Water </Text>
+          <Text style={styles.buttonText}> Water </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.button, {backgroundColor: 'gray'}]}
           onPress={() =>
             navigate('Element', { name: 'air' })}
         >
-          <Text> Air </Text>
+          <Text style={styles.buttonText}> Air </Text>
         </TouchableOpacity>
         <FooterNav navigate={navigate} />
       </View>
@@ -52,7 +53,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: 25
+    paddingHorizontal: 25,
+    backgroundColor: 'white'
   },
   button: {
     alignItems: 'center',
@@ -60,4 +62,18 @@ const styles = StyleSheet.create({
     margin: 15,
     borderRadius: 10,
   },
+  buttonText: {
+    fontSize: 20
+  },
+  title: {
+    fontSize: 40,
+    marginTop: -70,
+    marginBottom: 20,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  outer: {
+    flex: 1,
+    justifyContent: 'center'
+  }
 });

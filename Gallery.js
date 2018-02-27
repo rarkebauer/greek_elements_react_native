@@ -5,12 +5,14 @@ import {
   View,
   ScrollView,
   Image,
+  TouchableHighlight
 } from 'react-native';
 
 import fire from './elements/fire';
 import water from './elements/water';
 import earth from './elements/earth';
 import air from './elements/air';
+import SinglePhoto from './SinglePhoto'
 
 export default class Gallery extends Component {
   constructor(props){
@@ -19,29 +21,39 @@ export default class Gallery extends Component {
       fire,
       water,
       earth,
-      air
+      air,
+      currentImageSrc: ''
     };
+  }
+  updateCurrentImage(src){
+    this.setState({currentImageSrc: src})
   }
   renderGallery() {
     const photos = this.state[this.props.name];
     return photos.map((item, index) => {
+      let src = photos[index].src
         return (
             <View style={styles.item} key={item.label}>
+              <TouchableHighlight onPress={() => this.updateCurrentImage(src)}>
                 <Image
                     resizeMode={Image.resizeMode.cover}
                     style={styles.photo}
-                    source={photos[index].src} />
+                    source={src}
+                />
+              </TouchableHighlight>
             </View>
         );
     });
   }
 
   render(){
+    console.log('current image', this.state.currentImageSrc)
     return (
       <View style={styles.container}>
         <ScrollView style={styles.gallery}>
           { this.renderGallery() }
         </ScrollView>
+        {/* {this.state.currentImageSrc.length && <SinglePhoto src={this.state.currentImageSrc} />} */}
       </View>
     )
   }
